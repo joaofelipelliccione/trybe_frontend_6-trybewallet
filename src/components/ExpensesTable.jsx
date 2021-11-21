@@ -62,13 +62,13 @@ class ExpensesTable extends React.Component {
               <td>{ expObj.description }</td>
               <td>{ expObj.tag }</td>
               <td>{ expObj.method }</td>
-              <td>{ Number(expObj.value).toFixed(0) }</td>
+              <td>{ `${expObj.currency} ${Number(expObj.value).toFixed(2)}` }</td>
               <td>{ (expObj.exchangeRates[expObj.currency].name).split('/')[0] }</td>
-              <td>{ Number(expObj.exchangeRates[expObj.currency].ask).toFixed(2) }</td>
+              <td>{ `R$ ${Number(expObj.exchangeRates[expObj.currency].ask).toFixed(2)}` }</td>
               <td>
-                { (expObj.exchangeRates[expObj.currency].ask * expObj.value).toFixed(2) }
+                { `R$ ${(expObj.exchangeRates[expObj.currency].ask * expObj.value).toFixed(2)}` }
               </td>
-              <td>Real</td>
+              <td>{ (expObj.exchangeRates[expObj.currency].name).split('/')[1] }</td>
               <td id={ expObj.id }>
                 <button
                   data-testid="delete-btn"

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; // Importação do connect para "conectar" o respectivo componente ao Redux.
+import logo from '../images/logo-trybeWallet.png';
 import '../styles/header.css';
 
 class Header extends React.Component {
@@ -9,15 +10,14 @@ class Header extends React.Component {
 
     return (
       <header id="websiteHeader">
-        <h1>LOGO AQUI</h1>
+        <img src={ logo } alt='Logo Trybe Wallet' />
         <div id="userMailAndTotalExpensesContainer">
           <span data-testid="email-field">{ `E-mail: ${userMailProp}` }</span>
           <span>
             Despesa Total: R$
             <output data-testid="total-field">
-              { ` ${!totalExpenseBRLProp ? 0 : Number(totalExpenseBRLProp).toFixed(2)}` }
+              { ` ${Number(totalExpenseBRLProp).toFixed(2)}` }
             </output>
-            <output data-testid="header-currency-field"> BRL</output>
           </span>
         </div>
       </header>
