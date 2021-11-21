@@ -18,6 +18,11 @@ class Login extends React.Component {
     this.registerWithEnter = this.registerWithEnter.bind(this);
   }
 
+  componentWillUnmount() { // Salvando o e-mail do usuário que acabou de logar, no local Storage.
+    const { userMail } = this.state;
+    localStorage.setItem("userMail", JSON.stringify(userMail));
+  }
+
   onInputChange({ target }) { // Função que altera o valor do estado local, sempre que um input for realizado no elemento onde ela está sendo chamada. || OBS: Para que tal função funcione, os 'name' de cada um dos elementos do Forms devem ser iguais ao nome dos estados.
     const { name } = target;
     this.setState({ [name]: target.value });

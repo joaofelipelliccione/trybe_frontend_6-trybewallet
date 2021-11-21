@@ -29,7 +29,7 @@ class AddExpenseForm extends React.Component {
 
   componentDidMount() {
     const { fetchCurrenciesProp } = this.props;
-    fetchCurrenciesProp();
+    fetchCurrenciesProp(); // Realizando requisição e a salvando na store.
   }
 
   onInputChange({ target }) { // Função que altera o valor do estado local, sempre que um input for realizado no elemento onde ela está sendo chamada. || OBS: Para que tal função funcione, os 'name' de cada um dos elementos do Forms devem ser iguais ao nome dos estados.
@@ -63,7 +63,7 @@ class AddExpenseForm extends React.Component {
     const currentQuotation = Number(currenciesDataProp[currency].ask);
     const currentExpBRL = (expenseValue * currentQuotation);
     addNewExpProp(newExpense, currentExpBRL);
-    this.setState({ expenseValue: '0' });
+    this.setState({ expenseValue: '0', expenseTag: 'Alimentação', expenseDescription: '',  });
   }
 
   addExpenseWithEnter(e) { // Permite adicionar nova despesa pressionando a tecla Enter. --> Feature extra!
@@ -118,12 +118,16 @@ AddExpenseForm.propTypes = {
   expensesArrayProp: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchCurrenciesProp: PropTypes.func.isRequired,
   addNewExpProp: PropTypes.func.isRequired,
+  totalExpValueBRLProp: PropTypes.number.isRequired,
+  userMailProp: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   currenciesArrayProp: state.wallet.currencies, // Captando o array ['USD', 'CAD', 'EUR', 'GBP', 'ARS', 'BTC', ...], sem 'USDT'.
   currenciesDataProp: state.wallet.currenciesData, // Captando o objeto que armazena todas as informações, de cada moeda.
   expensesArrayProp: state.wallet.expenses, // Captando o array que armazena todas as despesas.
+  totalExpValueBRLProp: state.wallet.totalExpValueBRL, // Captando o estado que armazena o somatório de todas as despesas.
+  userMailProp: state.user.email, // Captando o estado que armazena o e-mail da pessoa logada.
 });
 
 const mapDispatchToProps = (dispatch) => ({

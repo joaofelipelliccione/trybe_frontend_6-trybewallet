@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; // Importação do connect para "conectar" o respectivo componente ao Redux.
+import { emailFromLocStoAC as getEmailFromLS} from '../actions';
 import logo from '../images/logo-trybeWallet.png';
 import '../styles/header.css';
 
 class Header extends React.Component {
+
+  componentDidMount () { // Captando o e-mail do usuário, salvo no local storage, e jogando-o para Store. Dessa forma, sempre que a página '/carteira' for atualizada, o e-mail do usuário não será perdido.
+    const { emailFromLocStoProp } = this.props;
+    const savedUserMailFromLS = JSON.parse(localStorage.getItem("userMail"));
+
+    if(savedUserMailFromLS && savedUserMailFromLS !== null) {
+      emailFromLocStoProp(savedUserMailFromLS);
+    }
+  }
+
   render() {
     const { userMailProp, totalExpenseBRLProp } = this.props;
 
@@ -28,6 +39,7 @@ class Header extends React.Component {
 Header.propTypes = {
   userMailProp: PropTypes.string.isRequired,
   totalExpenseBRLProp: PropTypes.number.isRequired,
+  emailFromLocStoProp: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -35,4 +47,8 @@ const mapStateToProps = (state) => ({
   totalExpenseBRLProp: state.wallet.totalExpValueBRL,
 });
 
-export default connect(mapStateToProps, null)(Header); // Não houve necessidade do mapDispatchToProps, por isso utilizei null.
+const mapDispatchToProps = (dispatch) => ({
+  emailFromLocStoProp: (savedUserMail) => dispatch(getEmailFromLS(savedUserMail)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header); // Não houve necessidade do mapDispatchToProps, por isso utilizei null.

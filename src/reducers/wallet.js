@@ -4,6 +4,7 @@ import {
   GET_CURRENCIES_ERROR,
   ADD_NEW_EXPENSE,
   DELETE_EXPENSE,
+  DATA_FROM_LOC_STO_WALLET
 } from '../actions/index';
 
 const INITIAL_STATE = {
@@ -35,7 +36,7 @@ function wallet(state = INITIAL_STATE, action) {
       ...state,
       expenses: [...state.expenses, action.newExpenseObj],
       totalExpValueBRL: Number((Number(state.totalExpValueBRL)
-        + Number(action.expValueBRL))),
+        + Number(action.expValueBRL)).toFixed(4)),
     };
 
   case DELETE_EXPENSE:
@@ -43,8 +44,16 @@ function wallet(state = INITIAL_STATE, action) {
       ...state,
       expenses: action.updatedExpArray,
       totalExpValueBRL: Number((Number(state.totalExpValueBRL)
-        - Number(action.deletedExpValueBRL))),
+        - Number(action.deletedExpValueBRL)).toFixed(4)),
     };
+
+  case DATA_FROM_LOC_STO_WALLET:
+  return {
+    ...state,
+    expenses: action.savedExpArray,
+    totalExpValueBRL: Number(Number(action.savedTotalExpBRL)
+      .toFixed(4)),
+  };
 
   default:
     return state;

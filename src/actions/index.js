@@ -51,6 +51,27 @@ export const deleteExpenseAC = (updatedExpArray, deletedExpValueBRL) => ({
 });
 
 /*
+Criação da 6ª Action Creator. Essa, não será chamada dentro de thunk.
+- Sua reducer é a user().
+*/
+export const DATA_FROM_LOC_STO_USER = 'DATA_FROM_LOC_STO_USER';
+export const emailFromLocStoAC = (savedUserMail) => ({
+  type: DATA_FROM_LOC_STO_USER,
+  savedUserMail,
+});
+
+/*
+Criação da 7ª Action Creator. Essa, não será chamada dentro de thunk.
+- Sua reducer é a wallet().
+*/
+export const DATA_FROM_LOC_STO_WALLET = 'DATA_FROM_LOC_STO_WALLET';
+export const dataFromLocStoAC = (savedExpArray, savedTotalExpBRL) => ({
+  type: DATA_FROM_LOC_STO_WALLET,
+  savedExpArray,
+  savedTotalExpBRL,
+});
+
+/*
 Criação da 1ª e única Action Creator Thunk.
 - É uma AC especial, que retornará uma função e não um objeto como de costume.
 - A função retornada engloba a currenciesAPI() e as AC 2 e 3, mencionadas acima.
