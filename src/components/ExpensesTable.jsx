@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; // Importação do connect para "conectar" o respectivo componente ao Redux.
 import { deleteExpenseAC, dataFromLocStoAC } from '../actions'; // Importação da Action Creator responsável pelo requisito 8.
+import '../styles/expensesTable.css';
 
 class ExpensesTable extends React.Component {
   constructor() {
@@ -61,11 +62,11 @@ class ExpensesTable extends React.Component {
   render() {
     const thContent = ['Descrição', 'Tag', 'Método de pagamento',
       'Valor', 'Moeda', 'Câmbio utilizado',
-      'Valor convertido', 'Moeda de conversão', 'Editar/Excluir'];
+      'Valor convertido', 'Moeda de conversão', 'Excluir'];
     const { expensesArrayProp } = this.props;
 
     return (
-      <table>
+      <table id="expensesTable">
         <thead>
           <tr>
             { thContent.map((title) => (
@@ -93,7 +94,7 @@ class ExpensesTable extends React.Component {
                   type="button"
                   onClick={ this.deleteExpAndUpdateTotal }
                 >
-                  Deletar Linha
+                  <span role="img" aria-label="Emoji de Deleção">🗑️</span>
                 </button>
               </td>
             </tr>
