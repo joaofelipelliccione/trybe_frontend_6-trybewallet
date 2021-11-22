@@ -7,15 +7,49 @@
 }
 
 #websiteHeader {
+  background-image: linear-gradient(#189AB4, #6cd8e4);
   border: solid 2px black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2%;
+  padding: 1.5%;
 }
 
-#userMailAndTotalExpensesContainer {
-  border: solid 2px black;
+#websiteHeader img {
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 150px;
+}
+
+#headerImportantInfo {
+  border: solid 2px #05445E;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 25%;
+  width: 40%;
+  font-size: 1.2em;
+}
+
+#headerEmailOutput {
+  color: ghostwhite;
+  width: fit-content;
+  text-align: center;
+}
+
+#logOutBtn {
+  background-color: #75E6DA;
+  color: #05445E;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1%;
+  transition: 0.3s ease-in-out;
+}
+
+#logOutBtn:hover {
+  background-color: #f8cfc1;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

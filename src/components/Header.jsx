@@ -44,8 +44,10 @@ class Header extends React.Component {
     return (
       <header id="websiteHeader">
         <img src={ logo } alt='Logo Trybe Wallet' />
-        <div id="userMailAndTotalExpensesContainer">
-          <span data-testid="email-field">{ `E-mail: ${userMailProp}` }</span>
+        <div id="headerImportantInfo">
+          <span data-testid="email-field" id="headerEmailOutput">
+            { userMailProp }
+          </span>
           <span>
             Despesa Total: R$
             <output data-testid="total-field">
@@ -53,6 +55,7 @@ class Header extends React.Component {
             </output>
           </span>
           <button
+            id="logOutBtn"
             type='button'
             onClick={ this.logOut }
           >
