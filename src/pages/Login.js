@@ -21,12 +21,12 @@ class Login extends React.Component {
   componentWillUnmount() {
     // Salvando o e-mail do usuário que acabou de logar, no local Storage.
     const { userMail } = this.state;
-    localStorage.setItem("userMail", JSON.stringify(userMail));
-    
+    localStorage.setItem('userMail', JSON.stringify(userMail));
+
     // Caso o usuário esteja logando pela primeira vez, a key 'emailUsuário-expensesArray' será definida como '[]' e a key 'emailUsuário-totalExpValueBRL' será definida como '0', no local storage.
     const expArrayFromLS = JSON.parse(localStorage.getItem(`${userMail}-expensesArray`));
 
-    if(!expArrayFromLS) {
+    if (!expArrayFromLS) {
       localStorage.setItem(`${userMail}-expensesArray`, JSON.stringify([]));
       localStorage.setItem(`${userMail}-totalExpValueBRL`, JSON.stringify(0));
     }

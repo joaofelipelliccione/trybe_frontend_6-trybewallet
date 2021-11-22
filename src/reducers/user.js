@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 
 function user(state = INITIAL_STATE, action) { // Reducer responsável por armazenar o e-mail do usuário logado. Sua Action Creator é a setLoginInfoAC().
   switch (action.type) {
-
   case SET_LOGIN_INFO:
     return {
       ...state,
