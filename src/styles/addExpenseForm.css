@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+}
+
+#addExpenseForm {
+  border: solid red 2px;
+  background-color: #D4F1F4;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+
+#addExpenseForm label {
+  background-image: linear-gradient(to bottom right, #189AB4, #b8eff5);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  font-size: 1.1em;
+  padding: 0.3% 0;
+}
+
+/* <ExpenseValue /> e <ExpenseDescription /> */
+
+#addExpenseForm input[type = "number"], #addExpenseForm input[type = "text"]  {
+  border: solid 1.5px #189AB4;
+  border-radius: 4px;
+  font-size: 1.15em;
+  width: 55%;
+  margin-top: 2.5%;
+  padding: 2%;
+  transition: 0.3s ease-in-out;
+}
+
+#addExpenseForm input[type = "number"]:focus, #addExpenseForm input[type = "text"]:focus  {
+  background-color: #c0f5f1;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+}

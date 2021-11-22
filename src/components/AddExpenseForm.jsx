@@ -9,6 +9,7 @@ import CurrenciesSelect from './formComponents/CurrenciesSelect';
 import PaymentTypeSelect from './formComponents/PaymentTypeSelect';
 import ExpenseTag from './formComponents/ExpenseTag';
 import ExpenseDescription from './formComponents/ExpenseDescription';
+import '../styles/addExpenseForm.css';
 
 class AddExpenseForm extends React.Component {
   constructor() {
@@ -77,7 +78,7 @@ class AddExpenseForm extends React.Component {
     const { currenciesArrayProp } = this.props;
 
     return (
-      <form>
+      <form id="addExpenseForm">
         <ExpenseValue
           onInputChange={ this.onInputChange }
           expenseValue={ expenseValue }
