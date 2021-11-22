@@ -18,9 +18,18 @@ class Login extends React.Component {
     this.registerWithEnter = this.registerWithEnter.bind(this);
   }
 
-  componentWillUnmount() { // Salvando o e-mail do usuário que acabou de logar, no local Storage.
+  componentWillUnmount() {
+    // Salvando o e-mail do usuário que acabou de logar, no local Storage.
     const { userMail } = this.state;
     localStorage.setItem("userMail", JSON.stringify(userMail));
+    
+    // Caso o usuário esteja logando pela primeira vez, a key 'emailUsuário-expensesArray' será definida como '[]' e a key 'emailUsuário-totalExpValueBRL' será definida como '0', no local storage.
+    const expArrayFromLS = JSON.parse(localStorage.getItem(`${userMail}-expensesArray`));
+
+    if(!expArrayFromLS) {
+      localStorage.setItem(`${userMail}-expensesArray`, JSON.stringify([]));
+      localStorage.setItem(`${userMail}-totalExpValueBRL`, JSON.stringify(0));
+    }
   }
 
   onInputChange({ target }) { // Função que altera o valor do estado local, sempre que um input for realizado no elemento onde ela está sendo chamada. || OBS: Para que tal função funcione, os 'name' de cada um dos elementos do Forms devem ser iguais ao nome dos estados.

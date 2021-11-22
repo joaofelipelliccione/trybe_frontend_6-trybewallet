@@ -16,14 +16,15 @@ class ExpensesTable extends React.Component {
     localStorage.setItem(`${userMailProp}-totalExpValueBRL`, JSON.stringify(totalExpValueBRLProp));
   }
 
-  componentDidMount() { // Sempre que o respectivo componente terminar de ser montado, ele atualizará a key 'expenses' e 'totalExpValueBRL', da store, com o conteúdo salvo no local storage.
-    const { userMailProp, dataFromLocStoProp } = this.props;
-    const expArrayFromLS = JSON.parse(localStorage.getItem(`${userMailProp}-expensesArray`));
-    const totalExpBRLFromLS = JSON.parse(localStorage.getItem(`${userMailProp}-totalExpValueBRL`));
+  componentDidMount() {
+    const { dataFromLocStoProp } = this.props;
+    const userMailFromLS = JSON.parse(localStorage.getItem('userMail')); // Precisei captar o 'userMail' oriundo do LS pois, sempre que a página for atualizada, o 'userMail' oriundo da Store é zerado.
+    const expArrayFromLS = JSON.parse(localStorage.getItem(`${userMailFromLS}-expensesArray`));
+    const totalExpBRLFromLS = JSON.parse(localStorage.getItem(`${userMailFromLS}-totalExpValueBRL`));
 
-    if(expArrayFromLS && expArrayFromLS.length !== 0) { // Captando dados salvos na última sessão, armazenados no local storage.
-      dataFromLocStoProp(expArrayFromLS, totalExpBRLFromLS);
-    }
+    // Atualização da key 'expenses' e 'totalExpValueBRL', da store, com o conteúdo oriundo do local storage do usuário logado.
+    dataFromLocStoProp(expArrayFromLS, totalExpBRLFromLS);
+    // OBS: É importante lembrar que, caso o usuário esteja logando pela primeira vez, no momento que a página de Login ('/') for 'unMounted', a key 'emailUsuário-expensesArray' será definida como '[]' e a key 'emailUsuário-totalExpValueBRL' será definida como '0', no local storage.
   }
 
   deleteExpAndUpdateTotal({ target }) { // Função responsável pela execução das demandas do requisito 8.
