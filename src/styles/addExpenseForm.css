@@ -7,7 +7,6 @@
 }
 
 #addExpenseForm {
-  border: solid red 2px;
   background-color: #D4F1F4;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
@@ -19,11 +18,13 @@
   background-image: linear-gradient(to bottom right, #189AB4, #b8eff5);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #05445E;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 15%;
   font-size: 1.1em;
+  font-weight: 600;
   padding: 0.3% 0;
 }
 
@@ -33,7 +34,7 @@
   border: solid 1.5px #189AB4;
   border-radius: 4px;
   font-size: 1.15em;
-  width: 55%;
+  width: 80%;
   margin-top: 2.5%;
   padding: 2%;
   transition: 0.3s ease-in-out;
@@ -43,4 +44,43 @@
   background-color: #c0f5f1;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   outline: none;
+}
+
+/* <CurrenciesSelect />, <PaymentTypeSelect /> e <ExpenseTag /> */
+
+#addExpenseForm select {
+  background-color: ghostwhite;
+  border: solid 1.5px #189AB4;
+  border-radius: 4px;
+  font-size: 1.15em;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 2.5%;
+  padding: 2%;
+}
+
+#addExpenseForm select:focus  {
+  background-color: #c0f5f1;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+}
+
+/* Botão de adicionar despesa */
+
+#addExpenseBtn {
+  background-color: #75E6DA;
+  border: none;
+  border-radius: 5px;
+  align-self: center;
+  height: 10%;
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 1%;
+  transition: 0.2s ease-in-out;
+}
+
+#addExpenseBtn:hover {
+  background-color: #A3EBB1;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

@@ -106,7 +106,7 @@ class AddExpenseForm extends React.Component {
           type="button"
           onClick={ this.onAddExpense }
         >
-          Adicionar despesa
+          <span role="img" aria-label="Emoji de Adição">➕</span>
         </button>
       </form>
     );
