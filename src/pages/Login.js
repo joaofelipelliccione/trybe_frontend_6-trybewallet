@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'; // Importação do connect para "conectar" o respectivo componente ao Redux.
 import { setLoginInfoAC as getUserMailAC } from '../actions'; // Importação da Action Creator, para que seja possível realizar o dispatchToProps. || Importei com o nome alterado (Alias) pois estava dando erro.
+import logo from '../images/logo-trybeWallet.png';
+import '../styles/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -68,8 +70,9 @@ class Login extends React.Component {
     const minNumOfCaracs = 6;
 
     return (
-      <div id="loginPage">
-        <main id="loginFormContainer">
+      <main id="loginPageMain">
+        <div id="loginFormContainer">
+          <img src={ logo } alt="Logo Trybe Wallet" />
           <form id="loginForm">
             <label htmlFor="userMailInput">
               <input
@@ -105,8 +108,8 @@ class Login extends React.Component {
               Entrar
             </button>
           </form>
-        </main>
-      </div>
+        </div>
+      </main>
     );
   }
 }
