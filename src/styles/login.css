@@ -103,3 +103,21 @@ body {
   box-shadow: none;
   width: 30%;
 }
+
+#developerLink {
+  color: #05445E;
+  font-size: 1.2em;
+  margin-top: 5%;
+}
+
+#developerLink a {
+  text-decoration: none;
+  color: #0CA068;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+
+#developerLink a:hover {
+  color: #56c49a;
+  font-weight: 600;
+}

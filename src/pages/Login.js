@@ -107,6 +107,11 @@ class Login extends React.Component {
             >
               Entrar
             </button>
+            <span id="developerLink">
+              Developed by
+              {' '}
+              <a href="https://github.com/joaofelipelliccione" rel="noopener noreferrer" target="_blank">João Felipe Pelliccione</a>
+            </span>
           </form>
         </div>
       </main>
